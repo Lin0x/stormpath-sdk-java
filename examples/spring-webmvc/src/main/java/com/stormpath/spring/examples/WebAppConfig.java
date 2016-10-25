@@ -35,11 +35,15 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @PropertySource("classpath:application.properties")
 public class WebAppConfig {
 
-    @Autowired
     private Application stormpathApplication; //the REST resource in Stormpath that represents this app
 
-    @Autowired
     private Client client; //can be used to interact with all things in your Stormpath tenant
+
+    @Autowired
+    public WebAppConfig(Application stormpathApplication, Client client) {
+        this.stormpathApplication = stormpathApplication;
+        this.client = client;
+    }
 
     /**
      * This bean and the @PropertySource annotation above allow you to configure Stormpath beans with properties

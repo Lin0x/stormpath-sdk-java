@@ -30,8 +30,12 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class HelloController {
 
-    @Autowired
     private HelloService helloService;
+
+    @Autowired
+    public HelloController(HelloService helloService) {
+        this.helloService = helloService;
+    }
 
     @RequestMapping("/")
     ModelAndView home(HttpServletRequest request) {

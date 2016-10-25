@@ -33,8 +33,12 @@ import java.util.Map;
 public class RestrictedErrorController implements ErrorController {
     private static final String ERROR_PATH = "/error";
 
-    @Autowired
     private ErrorAttributes errorAttributes;
+
+    @Autowired
+    public RestrictedErrorController(ErrorAttributes errorAttributes) {
+        this.errorAttributes = errorAttributes;
+    }
 
     @Override
     public String getErrorPath() {

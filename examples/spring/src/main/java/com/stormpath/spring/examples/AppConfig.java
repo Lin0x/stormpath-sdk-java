@@ -30,11 +30,15 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @PropertySource("classpath:application.properties")
 public class AppConfig {
 
-    @Autowired
     private Application stormpathApplication; //the REST resource in Stormpath that represents this app
 
-    @Autowired
     private Client client; //can be used to interact with all things in your Stormpath tenant
+
+    @Autowired
+    public AppConfig(Application stormpathApplication, Client client) {
+        this.stormpathApplication = stormpathApplication;
+        this.client = client;
+    }
 
     @Bean
     public String startupMessage() {
