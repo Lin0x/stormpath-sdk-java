@@ -1,5 +1,5 @@
 The |project| is a drop-in plugin for `Spring Cloud Zuul`_ gateways that completely automates all user registration,
-login, authentication, authorization and other security workloads within the gateway.
+login, authentication, authorization and other security workloads for your application within the gateway.
 
 This allows the Zuul gateway to perform all of this behavior so you don't have to add it to your applications!
 

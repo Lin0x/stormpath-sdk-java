@@ -8,6 +8,7 @@ scms {
 
     model {
         apptype = 'application'
+        port = 8080
         maven.project.version = projectVersion
     }
 
@@ -34,7 +35,8 @@ environments {
                         //the following files are not relevant for the servlet docs.  We exclude them here
                         //so the sphinx parser doesn't warn us during rendering, e.g.
                         //    WARNING: document isn't included in any toctree
-                        ['source/appendix/default-stormpath-properties.rst',
+                        ['source/about_sczuul.rst',
+                        'source/appendix/default-stormpath-properties.rst',
                         'source/appendix/spring-boot-core-properties.rst',
                         'source/appendix/spring-boot-web-properties.rst',
                         'source/appendix/forgot-password.rst',
@@ -57,6 +59,7 @@ environments {
             model {
                 sczuul = true
                 apptype = 'gateway'
+                port = 8000
                 maven.project.groupId = 'com.stormpath.spring'
                 maven.project.artifactId = 'stormpath-zuul-spring-cloud-starter'
             }
@@ -65,7 +68,7 @@ environments {
 
     springboot {
         scms {
-            excludes = springExcludes
+            excludes = springExcludes + ['source/about_sczuul.rst']
             model {
                 springboot = true
                 maven.project.groupId = 'com.stormpath.spring'

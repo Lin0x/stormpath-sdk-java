@@ -35,17 +35,19 @@ In addition to allowing you to create users and groups, Stormpath also allows yo
 What is the |project|?
 ----------------------
 
-.. only:: servlet
+#if( $servlet )
 
-  The |project| is a drop-in plugin for Servlet-based web applications that makes it *incredibly* simple to add user management and authentication to your Java-based web application.
+The |project| is a drop-in plugin for Servlet-based web applications that makes it *incredibly* simple to add user management and authentication to your Java-based web application.
 
-.. only:: sczuul
+#elseif( $sczuul )
 
-  .. include:: about_sczuul.rst
+.. include:: about_sczuul.rst
 
-.. only:: not servlet or not sczuul
+#else
 
-  The |project| aims to completely automate all user registration, login, authentication and authorization workloads as well as properly secure your web $apptype.  It is completely flexible - use only the functionality you need or leverage the entire feature set.
+The |project| aims to completely automate all user registration, login, authentication and authorization workloads as well as properly secure your web $apptype.  It is completely flexible - use only the functionality you need or leverage the entire feature set.
+
+#end
 
 Who should use Stormpath?
 -------------------------

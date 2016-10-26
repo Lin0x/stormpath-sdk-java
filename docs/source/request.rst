@@ -153,19 +153,21 @@ Again, if there is no Account associated with the request, ``getUserPrincipal()`
 Stormpath Application
 ---------------------
 
-The |project| requires that your web application correspond to a registered ``Application`` record within Stormpath.  You can access this ``Application`` for your own needs (for example, searching your application's user accounts, creating groups, etc.) using Spring autowiring, an ``ApplicationResolver`` or request attributes.
+The |project| requires that your ${apptype} correspond to a registered ``Application`` record within Stormpath.  You can access this ``Application`` for your own needs (for example, searching your application's user accounts, creating groups, etc.) using Spring autowiring, an ``ApplicationResolver`` or request attributes.
 
-.. only:: springboot
+#if( !$servlet )
 
-  Spring autowiring
-  ^^^^^^^^^^^^^^^^^
+Spring autowiring
+^^^^^^^^^^^^^^^^^
 
-  The ``Application`` is created at application startup and is not request-specific, so the easiest thing to do is to obtain it by normal Spring autowiring:
+The ``Application`` instance is created at ${apptype} startup and is not request-specific, so the easiest thing to do is to obtain it by normal Spring autowiring:
 
-  .. code-block:: java
+.. code-block:: java
 
-     @Autowired
-     private Application application;
+   @Autowired
+   private Application application;
+
+#end
 
 Application Resolver
 ^^^^^^^^^^^^^^^^^^^^
@@ -229,23 +231,25 @@ which is less readable and not very convenient.
 Stormpath Client
 ----------------
 
-.. only:: servlet
+#if( $servlet )
 
-  The |project| uses a Stormpath ``Client`` for all communication to Stormpath. You can access this ``Client`` for your own needs using either the ``ClientResolver`` or request attributes.
+The |project| uses a Stormpath ``Client`` for all communication to Stormpath. You can access this ``Client`` for your own needs using either the ``ClientResolver`` or request attributes.
 
-.. only:: springboot
+#else
 
-  The |project| uses a Stormpath ``Client`` for all communication to Stormpath. You can access this ``Client`` for your own needs using Spring autowiring, the ``ClientResolver`` or request attributes.
+The |project| uses a Stormpath ``Client`` for all communication to Stormpath. You can access this ``Client`` for your own needs using Spring autowiring, the ``ClientResolver`` or request attributes.
 
-  Spring autowiring
-  ^^^^^^^^^^^^^^^^^
+Spring autowiring
+^^^^^^^^^^^^^^^^^
 
-  The ``Client`` is created at application startup and is not request-specific, so the easiest thing to do is to obtain it by normal Spring autowiring:
+The ``Client`` is created at ${apptype} startup and is not request-specific, so the easiest thing to do is to obtain it by normal Spring autowiring:
 
-  .. code-block:: java
+.. code-block:: java
 
-     @Autowired
-     private Client client;
+   @Autowired
+   private Client client;
+
+#end
 
 Client Resolver
 ^^^^^^^^^^^^^^^
