@@ -45,6 +45,8 @@ This part of the documentation will show you how to get started right away.  If 
   logout
   request-authentication
   request
+  #if($sczuul)forwarded-request#end
+
   #if($servlet)access-control#end
 
   i18n

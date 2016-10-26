@@ -14,14 +14,11 @@ scms {
 
     model.apptype = 'application'
 
-
     patterns {
-
         '**/*.rst' {
             renderer = 'velocity' //ordinarily only looks for files with vtl extension
             outputFileExtension = 'rst' //ordinarily html
         }
-
     }
 }
 
@@ -35,7 +32,8 @@ environments {
                         //the following files are not relevant for the servlet docs.  We exclude them here
                         //so the sphinx parser doesn't warn us during rendering, e.g.
                         //    WARNING: document isn't included in any toctree
-                        ['source/about_sczuul.rst',
+                        ['source/forwarded-request.rst',
+                        'source/about_sczuul.rst',
                         'source/appendix/default-stormpath-properties.rst',
                         'source/appendix/spring-boot-core-properties.rst',
                         'source/appendix/spring-boot-web-properties.rst',
@@ -68,7 +66,7 @@ environments {
 
     springboot {
         scms {
-            excludes = springExcludes + ['source/about_sczuul.rst']
+            excludes = springExcludes + ['source/about_sczuul.rst', 'source/forwarded-request.rst']
             model {
                 springboot = true
                 maven.project.groupId = 'com.stormpath.spring'

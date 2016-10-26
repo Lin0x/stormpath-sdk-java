@@ -3,13 +3,23 @@
 Request Context
 ===============
 
-The |project| ensures important Stormpath objects are available to you during a request:
+#if( $sczuul )
+
+.. tip::
+
+   This page covers request objects that are available during a request within the ${apptype} itself.  If you are
+   looking for information about the request data forwarded to the origin server(s), please see the
+   :ref:`Forwarded Request <forwarded request>` page instead.
+
+#end
+
+The |project| ensures important Stormpath objects are available to your ${apptype} code during a request:
 
 * The Stormpath SDK ``Client`` instance, in case you want to communicate with Stormpath for any behavior that the |project| does not automate.
 * The Stormpath ``Application`` instance that corresponds to your web application.
-* A Stormpath ``Account`` instance that represents the current authenticated user account making a request to your web application.
+* A Stormpath ``Account`` instance that represents the current authenticated user account making the request.
 
-The ``Client`` and ``Application`` will always be available.  The current user ``Account`` is only available if the user making the request has previously logged in.
+The ``Client`` and ``Application`` will always be available.  The current user ``Account`` is only available if the user making the request is authenticated.
 
 .. contents::
    :local:
