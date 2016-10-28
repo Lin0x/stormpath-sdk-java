@@ -356,8 +356,8 @@ For example, let's suppose we want to add a custom field to capture a user's bir
     stormpath.web.register.form.fields.birthday.enabled = true
     stormpath.web.register.form.fields.birthday.visible = true
     stormpath.web.register.form.fields.birthday.required = true
-    stormpath.web.register.form.fields.birthday.label = stormpath.web.register.form.fields.birthday.label
-    stormpath.web.register.form.fields.birthday.placeholder = stormpath.web.register.form.fields.birthday.placeholder
+    stormpath.web.register.form.fields.birthday.label = Birthday
+    stormpath.web.register.form.fields.birthday.placeholder = Birthday
 
 #else
 

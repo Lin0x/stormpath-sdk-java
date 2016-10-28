@@ -37,7 +37,7 @@ Add the |project|
 
 #if( $servlet )
 
-This step allows you to deploy Stormpath *without a single line of code or configuration*.  How amazing is that?
+This step allows you to use Stormpath *without a single line of code or configuration*.  How amazing is that?
 
 Using your favorite dependency resolution build tool like Maven or Gradle, ensure your web (.war) project/module depends on ``${maven.project.artifactId}-${maven.project.version}.jar``. For example:
 
@@ -117,7 +117,7 @@ That's it!  Stormpath is now enabled in your Spring Cloud Zuul gateway!
 
 #end
 
-#if( $springboot || $sczuul )
+#if( !$servlet )
 
 Spring Security
 ^^^^^^^^^^^^^^^

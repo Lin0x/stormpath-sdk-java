@@ -14,10 +14,6 @@ Zuul Config
 
 .. include:: config-zuul.rst.inc
 
-#end
-
-#if( $sczuul )
-
 No Stormpath Config?
 --------------------
 
@@ -47,7 +43,7 @@ However, some applications might experience a filter chain conflict that causes 
 
 At application startup, the Stormpath Java Servlet Plugin automatically enables a ``StormpathFilter`` to handle various request flows.  If your web application uses frameworks that make heavy use of servlet filters, like Spring MVC or Apache Shiro, these existing filters might cause an ordering conflict with the ``StormpathFilter``.
 
-If you are experiencing problems after adding the stormpath-servlet-plugin .jar to your web app's classpath, you'll need to explicitly specify where the ``StormpathFilter`` should reside in your application's filter chain.  Luckily the fix is really easy:
+If you are experiencing problems after adding ``${maven.project.artifactId}-${maven.project.version}.jar`` to your web app's classpath, you'll need to explicitly specify where the ``StormpathFilter`` should reside in your application's filter chain.  Luckily the fix is really easy:
 
 Simply specify the following XML chunk in ``/WEB-INF/web.xml`` relative to other filter mappings that are already enabled in your application:
 
@@ -87,7 +83,7 @@ Configuration property values are read from the following locations, *in order*.
    :local:
    :depth: 2
 
-If you're just starting out, we recommend that your configuration be specified in ``/WEB-INF/stormpath.properties`` and you use Environment Variables to specify password or secret values (e.g. for production environments).
+If you're just starting out, we recommend that your configuration be specified in ``/WEB-INF/stormpath.properties`` and you use environment variables to specify password or secret values (e.g. for production environments).
 
 Defining properties in these locations is covered more in detail next.
 
@@ -171,7 +167,7 @@ Because Stormpath API Keys are always assigned to an individual person, they sho
 
 Also, it should also be noted that, while JVM System Properties are not usually visible to other developers, using System Properties for secrets and passwords can also be seen as a security risk: system property values are visible to anyone performing a process listing on a production machine (e.g. ``ps aux | grep java``).
 
-If you cannot rely on accessing the default ``$HOME/.stormpath/apiKey.properties`` file, Environment Variables or a different private local file (with restricted read permissions) is usually a safer alternative when defining passwords or secret values than shared files or JVM System Properties.
+If you cannot rely on accessing the default ``$HOME/.stormpath/apiKey.properties`` file, environment variables or a different private local file (with restricted read permissions) is usually a safer alternative when defining passwords or secret values than shared files or JVM System Properties.
 
 #else
 
@@ -200,9 +196,9 @@ It is **strongly** recommended that you do not specify the ``stormpath.client.ap
 
 Because Stormpath API Keys are always assigned to an individual person, they should never be shared with or visible to anyone else, not even other co-workers or even Stormpath employees.  Anyone that has your API Key id and secret can alter the data in your Stormpath tenant.
 
-Also, it should also be noted that, while JVM System Properties are not usually visible to other developers, using System Properties for secrets and passwords can also be seen as a security risk: system property values are visible to anyone performing a process listing on a production machine (e.g. ``ps aux | grep java``).
+Also, it should also be noted that, while JVM system properties are not usually visible to other developers, using system properties for secrets and passwords can also be seen as a security risk: system property values are visible to anyone performing a process listing on a production machine (e.g. ``ps aux | grep java``).
 
-If you cannot rely on accessing the default ``$HOME/.stormpath/apiKey.properties`` file, Environment Variables or a different private local file (with restricted read permissions) is usually a safer alternative when defining passwords or secret values than shared files or JVM System Properties.
+If you cannot rely on accessing the default ``$HOME/.stormpath/apiKey.properties`` file, environment variables or a different private local file (with restricted read permissions) is usually a safer alternative when defining passwords or secret values than shared files or JVM system properties.
 
 
 Bean Overrides
@@ -328,7 +324,7 @@ Stormpath Application
 
 The |project| requires that your ${apptype} correspond to a registered ``Application`` record within Stormpath.
 
-If you only have one registered application with Stormpath, |project| will automatically query Stormpath at startup, find the ``Application`` record and use it, and no configuration is necessary.
+If you only have one registered application with Stormpath, |project| will automatically query Stormpath at startup, find the ``Application`` and use it, and no configuration is necessary.
 
 However, if you have more than one application registered with Stormpath, you must configure the ``href`` of the specific application to access by setting the following configuration property:
 

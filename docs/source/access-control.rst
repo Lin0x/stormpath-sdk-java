@@ -9,9 +9,9 @@ The rules are implemented via simple Servlet :ref:`filters <filters>` and :ref:`
 
 It works as follows:
 
-* You can define any number of servlet filter implementation that represents a single control rule, for example, the current requestor must be a known user, or the they must be authenticated, or they must belong to a particular group, etc.  The plugin comes with a number of useful ones ready to go out of the box.
+* You can define any number of servlet filter implementation that represents a single control rule, for example, the current requestor must be a known user, or they must be authenticated, or they must belong to a particular group, etc.  The plugin comes with a number of useful ones ready to go out of the box.
 
-* For any URI path that a user might access, you can specify one or more of these control rules (filters).  If all of the control filter conditions pass - that is, each specified filter determines that the current request is allowed - the filters allow the request to continue to the final destination, presumably a Servlet or an MVC controller in your favorite web framework.
+* For any URI path that a user might access, you can specify one or more of these control rules (filters).  If all of the control filter conditions pass - that is, each specified filter determines that the current request is allowed - the filters allow the request to continue to the final destination, presumably a Servlet or an MVC controller in your web framework.
 
   If the access control condition is not satisfied, any filter is allowed to do what it needs: for example, redirect the user to a different location or send back a particular 4XX status code.  This provides a very flexible mechanism to build up rule chains as necessary based on your application requirements.
 

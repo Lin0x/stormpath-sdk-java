@@ -24,8 +24,24 @@ Finally, the HTTP specification states that resource state should not be modifie
 manipulates resource (user) state, ideally logout should never be available via ``GET``.
 
 What does this mean for you?  It simply means that you will need to put a Logout link or button somewhere
-in your pages that allows a user to logout safely.  For example, here is a Thymeleaf template that renders a logout
-form that is submitted with a logout button:
+in your pages that allows a user to logout safely.
+
+#if( $servlet )
+
+For example, here is a JSTL snippet that renders a logout that is submitted with a logout button:
+
+.. code-block:: xml
+
+  <!-- Only Show the logout form/button if there is an active account: -->
+  <c:if test="${!empty account}">
+    <form id="logoutForm" action="${pageContext.request.contextPath}/logout" method="post">
+      <input type="submit" value="Logout"/>
+    </form>
+  </c:if>
+
+#else
+
+For example, here is a Thymeleaf snippet that renders a logout form that is submitted with a logout button:
 
 .. code-block:: xml
 
@@ -36,7 +52,7 @@ form that is submitted with a logout button:
     </form>
   </div>
 
-It would be simple to create the same thing in a JSP using JSTL if you weren't using Thymeleaf.
+#end
 
 URI
 ---

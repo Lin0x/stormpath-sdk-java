@@ -52,7 +52,7 @@ The |project| aims to completely automate all user registration, login, authenti
 Who should use Stormpath?
 -------------------------
 
-Stormpath is a powerful and secure service.  The |project| makes it even easier to use in web ${apptype}s on the JVM, but it might not be for everyone!
+Stormpath is a powerful and secure service.  The |project| makes it even easier to use in ${apptype}s on the JVM, but it might not be for everyone!
 
 You might want to use Stormpath if:
 

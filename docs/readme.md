@@ -20,7 +20,11 @@ If you already have Sphinx, then just upgrade:
 
 **NOTE:** Make sure you are using Sphinx 1.4.6 as a minimum. With previous versions, warnings are treated as errors.
 
-Then clone this repo.
+#### Update Stormpath Theme Module
+
+To pick up the shared Stormpath doc theme:
+
+`git submodule update --init --recursive`
 
 ### Structure
 

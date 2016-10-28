@@ -119,7 +119,7 @@ There are two events that can be triggered during login attempts:
 Authentication State
 --------------------
 
-When a user authenticates successfully during a request, how does your application know who the authenticated user is during future requests?
+When a user authenticates successfully during a request, how does your ${apptype} know who the authenticated user is during future requests?
 
 HTTP is a stateless protocol, so there must be a way to represent the *state* of an authenticated user - the user identity, when they authenticated, etc - across requests.
 
